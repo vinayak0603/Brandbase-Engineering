@@ -1,0 +1,6 @@
+imagine you are the senior full stack developer and you task is to now make the lading page super smooth all the images should load properly and there should be lag while scolling the home page and change the UI of the <ScrollingServices />
+
+current one is not looking good special the video side and also sometime it does not work properly and make aure the entire landing match all should be in one theme only getting it ??
+
+make sure everything is smooth and professional/responsive gettign it ??
+
