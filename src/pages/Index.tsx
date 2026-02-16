@@ -8,20 +8,20 @@ import SectionTitle from "@/components/SectionTitle";
 import heroHome from "@/assets/hero-home.jpg";
 import heroVideo from "@/assets/vidoes/HeroVideo.mp4";
 import AboutUsSection from "@/components/AboutUsSection";
-import tooling1 from "@/assets/tooling-1.jpg";
-import FeedbackSection from "@/components/FeedbackSection";
+//import tooling1 from "@/assets/tooling-1.jpg";
+//import FeedbackSection from "@/components/FeedbackSection";
 
 
 //industries images
 import packaging from "https://images.pexels.com/photos/5025483/pexels-photo-5025483.jpeg";
-import consumerElectronics from "@/assets/industries/consumerElectronics.jpg";
-import householdProducts from "@/assets/industries/consumerProducts.jpg";
-import architecturalFurnitureFittings from "@/assets/industries/architectural-furniture-fittings.jpg";
-import toys from "@/assets/industries/toys.jpg";
+import consumerElectronics from "https://images.pexels.com/photos/821652/pexels-photo-821652.jpeg";
+import householdProducts from "https://images.pexels.com/photos/4202482/pexels-photo-4202482.jpeg";
+//import architecturalFurnitureFittings from "@/assets/industries/architectural-furniture-fittings.jpg";
+//import toys from "@/assets/industries/toys.jpg";
 
-import ScrollingServices from "@/components/ScrollingServices";
+//import ScrollingServices from "@/components/ScrollingServices";
 import DynamicFrameSection from "@/components/DynamicFrameSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
+//import { FeaturesSection } from "@/components/FeaturesSection";
 
 const services = [
   { icon: Cog, title: "Injection Moulding", description: "State-of-the-art injection moulding with machines ranging from 50 to 1000 tonnes, delivering precision parts in high volumes." },
