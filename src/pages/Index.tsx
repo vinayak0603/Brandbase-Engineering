@@ -13,7 +13,7 @@ import FeedbackSection from "@/components/FeedbackSection";
 
 
 //industries images
-import packaging from "@/assets/industries/packaging.jpg";
+import packaging from "https://images.pexels.com/photos/5025483/pexels-photo-5025483.jpeg";
 import consumerElectronics from "@/assets/industries/consumerElectronics.jpg";
 import householdProducts from "@/assets/industries/consumerProducts.jpg";
 import architecturalFurnitureFittings from "@/assets/industries/architectural-furniture-fittings.jpg";
