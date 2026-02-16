@@ -17,7 +17,7 @@ import tooling1 from "@/assets/tooling-1.jpg";
 import tooling2 from "@/assets/tooling-2.jpg";
 import heroHome from "@/assets/hero-home.jpg";
 // import heroServices from "@/assets/hero-services.jpg"; // defined but unused in original, keeping it just in case or removing if not needed.
-import packaging from "@/assets/industries/packaging.jpg";
+import packaging from "https://images.pexels.com/photos/5025483/pexels-photo-5025483.jpeg";
 
 // Dummy Video Data (You can replace these with actual assets)
 const videos = [
