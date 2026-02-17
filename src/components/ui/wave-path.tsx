@@ -105,7 +105,7 @@ export function WavePath({ className, orientation = 'horizontal', ...props }: Wa
                 "absolute pointer-events-none",
                 isHorizontal ? "-top-[25px] h-[100px] w-full" : "-left-[25px] w-[100px] h-full"
             )}>
-                <path ref={path} className="fill-none stroke-current" strokeWidth={2} />
+                <path ref={path} className="fill-none stroke-current" strokeWidth={2} style={{ willChange: "d" }} />
             </svg>
         </div>
     );

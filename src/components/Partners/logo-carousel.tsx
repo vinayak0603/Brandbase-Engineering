@@ -1,13 +1,10 @@
 "use client"
 
 import React, {
-    useCallback,
-    useEffect,
     useMemo,
-    useState,
     type SVGProps,
 } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 
 interface Logo {
     name: string
@@ -15,130 +12,56 @@ interface Logo {
     img: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
-interface LogoColumnProps {
-    logos: Logo[]
-    index: number
-    currentTime: number
-}
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array]
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-            ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-    }
-    return shuffled
-}
-
-const distributeLogos = (allLogos: Logo[], columnCount: number): Logo[][] => {
-    const shuffled = shuffleArray(allLogos)
-    const columns: Logo[][] = Array.from({ length: columnCount }, () => [])
-
-    shuffled.forEach((logo, index) => {
-        columns[index % columnCount].push(logo)
-    })
-
-    const maxLength = Math.max(...columns.map((col) => col.length))
-    columns.forEach((col) => {
-        while (col.length < maxLength) {
-            col.push(shuffled[Math.floor(Math.random() * shuffled.length)])
-        }
-    })
-
-    return columns
-}
-
-const LogoColumn: React.FC<LogoColumnProps> = React.memo(
-    ({ logos, index, currentTime }) => {
-        const cycleInterval = 2000
-        const columnDelay = index * 200
-        const adjustedTime = (currentTime + columnDelay) % (cycleInterval * logos.length)
-        const currentIndex = Math.floor(adjustedTime / cycleInterval)
-        const CurrentLogo = useMemo(() => logos[currentIndex].img, [logos, currentIndex])
-
-        return (
-            <motion.div
-                className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: index * 0.1,
-                    duration: 0.5,
-                    ease: "easeOut",
-                }}
-            >
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={`${logos[currentIndex].id}-${currentIndex}`}
-                        className="absolute inset-0 flex items-center justify-center"
-                        initial={{ y: "10%", opacity: 0, filter: "blur(8px)" }}
-                        animate={{
-                            y: "0%",
-                            opacity: 1,
-                            filter: "blur(0px)",
-                            transition: {
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 20,
-                                mass: 1,
-                                bounce: 0.2,
-                                duration: 0.5,
-                            },
-                        }}
-                        exit={{
-                            y: "-20%",
-                            opacity: 0,
-                            filter: "blur(6px)",
-                            transition: {
-                                type: "tween",
-                                ease: "easeIn",
-                                duration: 0.3,
-                            },
-                        }}
-                    >
-                        <CurrentLogo className="h-20 w-20 max-h-[80%] max-w-[80%] object-contain md:h-32 md:w-32" />
-                    </motion.div>
-                </AnimatePresence>
-            </motion.div>
-        )
-    }
-)
-
 interface LogoCarouselProps {
-    columnCount?: number
+    columnCount?: number // Kept for API compatibility but unused in Marquee
     logos: Logo[]
 }
 
-export function LogoCarousel({ columnCount = 2, logos }: LogoCarouselProps) {
-    const [logoSets, setLogoSets] = useState<Logo[][]>([])
-    const [currentTime, setCurrentTime] = useState(0)
-
-    const updateTime = useCallback(() => {
-        setCurrentTime((prevTime) => prevTime + 100)
-    }, [])
-
-    useEffect(() => {
-        const intervalId = setInterval(updateTime, 100)
-        return () => clearInterval(intervalId)
-    }, [updateTime])
-
-    useEffect(() => {
-        const distributedLogos = distributeLogos(logos, columnCount)
-        setLogoSets(distributedLogos)
-    }, [logos, columnCount])
+export function LogoCarousel({ logos }: LogoCarouselProps) {
+    // Duplicate logos to ensure seamless loop
+    const doubledLogos = useMemo(() => [...logos, ...logos, ...logos], [logos]);
 
     return (
-        <div className="flex space-x-4">
-            {logoSets.map((logos, index) => (
-                <LogoColumn
-                    key={index}
-                    logos={logos}
-                    index={index}
-                    currentTime={currentTime}
-                />
-            ))}
+        <div className="relative w-full overflow-hidden mask-linear-gradient">
+            {/* Gradient Masks for smooth fade in/out */}
+            <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+            <div className="flex overflow-hidden select-none gap-8 py-8">
+                <motion.div
+                    className="flex flex-shrink-0 gap-8 md:gap-16 items-center min-w-full"
+                    animate={{
+                        x: ["0%", "-33.33%"],
+                    }}
+                    transition={{
+                        duration: 30,
+                        ease: "linear",
+                        repeat: Infinity,
+                    }}
+                >
+                    {doubledLogos.map((logo, idx) => {
+                        const LogoComponent = logo.img;
+                        return (
+                            <div
+                                key={`${logo.id}-${idx}`}
+                                className="relative h-12 w-24 md:h-16 md:w-32 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 scale-95 hover:scale-105"
+                            >
+                                <LogoComponent className="h-full w-full object-contain" />
+                            </div>
+                        );
+                    })}
+                </motion.div>
+
+                {/* Second duplicate for the infinite effect if needed, but the single motion div with 3x content usually suffices for 33% shift. 
+                     However, the standard marquee often uses two identical strips moving. 
+                     Let's use the simpler 'transform' approach on a single large container or two containers.
+                     Actually, standard simple marquee is two divs translating.
+                  */}
+            </div>
         </div>
     )
 }
 
-export { LogoColumn };
+// Export for backward compatibility if imported elsewhere
+export const LogoColumn = () => null;
+

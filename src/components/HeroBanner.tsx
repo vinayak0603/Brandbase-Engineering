@@ -54,6 +54,7 @@ const HeroBanner = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="mb-4"
+              style={{ willChange: "transform, opacity" }}
             >
               <span className="text-white/80 font-medium tracking-wide bg-white/10 px-3 py-1 rounded-full text-sm backdrop-blur-sm border border-white/10">
                 {tagline}
@@ -66,6 +67,7 @@ const HeroBanner = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 tracking-tight"
+            style={{ willChange: "transform, opacity" }}
           >
             {title.split(",")[0]}
             {title.includes(",") && (
@@ -81,6 +83,7 @@ const HeroBanner = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
               className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed mb-10"
+              style={{ willChange: "transform, opacity" }}
             >
               {subtitle}
             </motion.p>
@@ -91,6 +94,7 @@ const HeroBanner = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className="flex flex-wrap gap-4"
+            style={{ willChange: "transform, opacity" }}
           >
             {ctaText && ctaLink && (
               <Link

@@ -61,7 +61,7 @@ function FrameComponent({
 
     return (
         <div
-            className={`relative ${className} overflow-hidden bg-blue-900`}
+            className={`relative ${className} overflow-hidden bg-blue-900 backface-visibility-hidden transform-gpu`}
             style={{
                 width,
                 height,
@@ -177,6 +177,7 @@ export function DynamicFrameLayout({
                 gridTemplateColumns: getColSizes(),
                 gap: `${gapSize}px`,
                 transition: "grid-template-rows 0.4s ease, grid-template-columns 0.4s ease",
+                willChange: "grid-template-rows, grid-template-columns",
             }}
         >
             {frames.map((frame) => {

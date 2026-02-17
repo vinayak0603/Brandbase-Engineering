@@ -26,6 +26,8 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Services",
     children: [
@@ -91,7 +93,6 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
 ];
 
 const Navbar = () => {
@@ -111,7 +112,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-2">
           <div className="flex items-center">
-            <img src={BrandbaseLogo} alt="Brandbase Engineering" className="h-[40px] xs:h-[50px] md:h-[100px] w-auto object-contain" />
+            <img src={BrandbaseLogo} alt="Brandbase Engineering" className="h-[40px] xs:h-[50px] md:h-[100px] w-auto object-contain" loading="lazy" decoding="async" />
             <div className="ml-2 hidden lg:block">
               <span className="text-primary font-bold text-lg leading-tight block">Brandbase Engineering</span>
               <span className="text-secondary text-[10px] tracking-widest uppercase">Precision Engineering</span>

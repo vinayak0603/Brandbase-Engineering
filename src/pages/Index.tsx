@@ -105,6 +105,7 @@ const Index = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group relative overflow-hidden rounded-3xl w-full max-w-[360px] aspect-[17/21] cursor-pointer bg-neutral-900"
+                  style={{ willChange: "transform, opacity" }}
                 >
                   <img
                     className="h-full w-full absolute inset-0 object-cover transition-transform duration-500 will-change-transform group-hover:scale-110"
@@ -137,6 +138,7 @@ const Index = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group relative overflow-hidden rounded-3xl w-full max-w-[360px] aspect-[17/21] cursor-pointer bg-neutral-900"
+                  style={{ willChange: "transform, opacity" }}
                 >
                   <img
                     className="h-full w-full absolute inset-0 object-cover transition-transform duration-500 will-change-transform group-hover:scale-110"
