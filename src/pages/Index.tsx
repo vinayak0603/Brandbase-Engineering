@@ -6,16 +6,16 @@ import Footer from "@/components/Footer";
 import HeroBanner from "@/components/HeroBanner";
 import SectionTitle from "@/components/SectionTitle";
 import heroHome from "@/assets/hero-home.jpg";
-import heroVideo from "@/assets/vidoes/HeroVideo.mp4";
+import heroVideo from "@/assets/videos/HeroVideo.mp4";
 import AboutUsSection from "@/components/AboutUsSection";
 //import tooling1 from "@/assets/tooling-1.jpg";
 //import FeedbackSection from "@/components/FeedbackSection";
 
 
 //industries images
-import packaging from "https://images.pexels.com/photos/5025483/pexels-photo-5025483.jpeg";
-import consumerElectronics from "https://images.pexels.com/photos/821652/pexels-photo-821652.jpeg";
-import householdProducts from "https://images.pexels.com/photos/4202482/pexels-photo-4202482.jpeg";
+const packaging = "https://images.pexels.com/photos/5025483/pexels-photo-5025483.jpeg";
+const consumerElectronics = "https://images.pexels.com/photos/821652/pexels-photo-821652.jpeg";
+const householdProducts = "https://images.pexels.com/photos/4202482/pexels-photo-4202482.jpeg";
 //import architecturalFurnitureFittings from "@/assets/industries/architectural-furniture-fittings.jpg";
 //import toys from "@/assets/industries/toys.jpg";
 

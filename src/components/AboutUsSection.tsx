@@ -1,4 +1,5 @@
 import { ShieldCheck } from "lucide-react";
+import gallery6 from "@/assets/gallery-6.jpg";
 
 export default function AboutUsSection() {
     return (
@@ -50,7 +51,7 @@ export default function AboutUsSection() {
                     <div className="relative w-full max-w-[600px] h-[500px]">
                         {/* We use a specific rounded shape here to match the reference 'superellipse' look */}
                         <img
-                            src="./src/assets/gallery-6.jpg"
+                            src={gallery6}
                             alt="Precision Manufacturing"
                             className="w-full h-full object-cover rounded-[3rem] shadow-none"
                         />

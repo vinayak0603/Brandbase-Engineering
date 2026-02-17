@@ -12,7 +12,7 @@ import imgPrecisionTooling from "@/assets/services/PrecisionTooling.jpg";
 import imgSecondaryOperation from "@/assets/services/SecondaryOperation.jpg";
 
 // Industry Images
-import imgToyManufacturing from "@/assets/Industries/toyManufacturing.jpg";
+import imgToyManufacturing from "@/assets/industries/toyManufacturing.jpg";
 
 type NavItem = {
   label: string;
