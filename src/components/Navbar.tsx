@@ -29,7 +29,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   {
-    label: "Services",
+    label: "Services", href: "/services",
     children: [
       {
         title: "Injection Moulding",
@@ -58,35 +58,36 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    label: "Industries",
+    label: "Industries", href: "/industries",
     children: [
+
       {
         title: "Packaging",
-        href: "/industries#packaging",
+        href: "/industries/packaging",
         src: "https://images.unsplash.com/photo-1589365278144-c9e705f843ba?q=80&w=400&auto=format&fit=crop",
         description: "Delivering innovative, high-quality packaging solutions with precision & reliability.",
       },
       {
         title: "Consumer Electronics",
-        href: "/industries#consumer-electronics",
+        href: "/industries/consumer-electronics",
         src: "https://images.unsplash.com/photo-1588508065123-287b28e013da?q=80&w=400&auto=format&fit=crop",
         description: "Custom plastic enclosures tailored from concept to production with precision & care.",
       },
       {
         title: "Household Products",
-        href: "/industries#household",
+        href: "/industries/household",
         src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=400&auto=format&fit=crop",
         description: "Crafting safe, ergonomic, & aesthetic household products for leading Indian brands.",
       },
       {
         title: "Architectural & Furniture",
-        href: "/industries#architectural",
+        href: "/industries/architectural",
         src: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=400&auto=format&fit=crop",
         description: "Reliable, cost-effective plastic components revolutionizing hardware and fittings.",
       },
       {
         title: "Toys",
-        href: "/industries#toys",
+        href: "/industries/toys",
         src: imgToyManufacturing,
         description: "Crafting safe, durable, and vibrant moulded toys with extreme precision & expertise.",
       },
@@ -125,7 +126,7 @@ const Navbar = () => {
           <Menu setActive={setActive}>
             {NAV_ITEMS.map((item) => (
               item.children ? (
-                <MenuItem key={item.label} setActive={setActive} active={active} item={item.label}>
+                <MenuItem key={item.label} setActive={setActive} active={active} item={item.label} href={item.href}>
                   <div className={`grid gap-6 ${item.label === "Services" ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2 lg:grid-cols-5"}`}>
                     {item.children.map((child) => (
                       <ProductItem

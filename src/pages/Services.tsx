@@ -61,7 +61,7 @@ const Services = () => {
           id="injection-moulding"
           title="Injection Moulding"
           description="Our core expertise lies in precision thermoplastic injection moulding. With a fleet of state-of-the-art machines ranging from 50 to 1000 tonnes, we cater to diverse industries including automotive, medical, and consumer electronics. Our scientific moulding process ensures part-to-part consistency, minimal waste, and optimal cycle times."
-          image="https://images.unsplash.com/photo-1622359670081-3705abec939e?q=80&w=2609&auto=format&fit=crop"
+          image="https://ik.imagekit.io/vinayak06/industry-machinery-works-with-accuracy-skill-generated-by-ai%20(1).jpg"
           subServices={injectionMouldingSubs}
         />
 
@@ -78,7 +78,7 @@ const Services = () => {
           id="precision-tooling"
           title="Precision Tooling"
           description="The heart of quality moulding is a quality mould. Our in-house tool room is equipped with the latest Swiss and Japanese CNC and EDM centers. We design and build high-cavitation, multi-shot, and stack moulds with micron-level precision, guaranteed for millions of shots."
-          image="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45f7?q=80&w=2574&auto=format&fit=crop"
+          image="https://images.pexels.com/photos/8327974/pexels-photo-8327974.jpeg"
           subServices={precisionToolingSubs}
         />
 
@@ -86,11 +86,11 @@ const Services = () => {
           id="secondary-operations"
           title="Secondary Operations"
           description="Transform moulded parts into finished products with our comprehensive value-added services. Whether it's complex assembly, decorative finishing, or functional bonding, our secondary operations are integrated directly into the production flow for maximum efficiency and quality control."
-          image="https://images.unsplash.com/photo-1625835941916-cf30311f9e61?q=80&w=2487&auto=format&fit=crop"
+          image="https://images.pexels.com/photos/18366881/pexels-photo-18366881.jpeg"
           subServices={secondaryOpsSubs}
           reversed
         />
-
+        {/*secondaryOpsSubs*/}
         <ServiceFAQ />
       </main>
       <Footer />

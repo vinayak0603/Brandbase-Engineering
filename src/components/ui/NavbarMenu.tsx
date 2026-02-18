@@ -12,20 +12,30 @@ export const MenuItem = ({
     active,
     item,
     children,
+    href,
 }: {
     setActive: (item: string) => void;
     active: string | null;
     item: string;
     children?: React.ReactNode;
+    href?: string;
 }) => {
+    const content = (
+        <motion.p
+            transition={{ duration: 0.3 }}
+            className="cursor-pointer text-primary hover:text-secondary transition-colors text-base font-semibold px-4 py-2"
+        >
+            {item}
+        </motion.p>
+    );
+
     return (
         <div onMouseEnter={() => setActive(item)} className="h-full flex items-center">
-            <motion.p
-                transition={{ duration: 0.3 }}
-                className="cursor-pointer text-primary hover:text-secondary transition-colors text-base font-semibold px-4 py-2"
-            >
-                {item}
-            </motion.p>
+            {href ? (
+                <Link to={href} onClick={() => setActive("")}>
+                    {content}
+                </Link>
+            ) : content}
             <AnimatePresence>
                 {active === item && (
                     <motion.div
